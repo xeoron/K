@@ -8,11 +8,12 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.0.1 of $0 is released under the GPL v3";
-my ($program, $processCount, $ver, $help ) = ('',0,0,0);
+my $version="Version 1.1.0 of $0 is released under the GPL v3";
+my ($program, $force, $processCount, $ver, $help ) = ('',0,0,0,0);
 
 GetOptions(
     't=s' =>\$program,
+    "f|force" =>\$force,
     "c" =>\$processCount, 
     "version|v" =>\$ver,
     "help" =>\$help,
@@ -28,7 +29,8 @@ $name for kill a program by name: k easily kills a running program or count how 
     Usage:        $name -t program_to_kill
       
     Optional:
-        -c         list number of processes the program is using.
+        -f         Force a temperamental process to end
+        -c         List number of processes the program is using
         -v         Version and License
         -help        
 EOD
@@ -55,7 +57,9 @@ sub main(){
     }
     elsif ($program){ #kill the program
         print "Shutting down all $program processes\n";
-        `ps x | grep -i $program | grep -v grep | awk '{print $1}' | xargs kill -9 >/dev/null 2>&1`;
+        my $state="-9";
+        $state = "-11" if ($force);
+        `ps x | grep -i $program | grep -v grep | awk '{print $1}' | xargs kill $state >/dev/null 2>&1`;
     }
  return 0;
 }#end main
