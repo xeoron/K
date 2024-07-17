@@ -9,8 +9,8 @@ Usage: To kill a program by name
 =====  
     k -t program_to_shutdown
     Optional:
-        -f         force a temperamental process to end
-        -c         list number of processes the program is using.
+        -f         Force a temperamental process to end
+        -c         List number of processes the program is using
         -v         Version and License
         -help     
 
