@@ -1,31 +1,32 @@
 K
 =====
 
-K easily kills a running program or count how many processes it is using.
+K easily kills a running program by name or count how many processes it is using.
+The *nix command kill requires a process number. K makes it easier.
+
 ======
-end a program looks like this this
+To kill a program by name
 
     bash-3.2$ k -t filebot
-     Killing all filebot processes
+     Shutting down all filebot processes
     bash-3.2$ 
 
 
 usage
-=====
-./k.pl -t program_to_kill
-      
+=====  
+    ./k.pl -t program_to_shutdown
     Optional:
         -c         list number of processes the program is using.
         -v         Version and License
         -help     
 
 
-requirements
+Requirements
 =====
-software:
+Software:
 
+    Perl v5 of higher
     Terminal
-    Mac OS X.5 or higher  
 
 Setup
 =====
