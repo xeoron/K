@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.1.0 of $0 is released under the GPL v3";
+my $version="Version 1.2.0 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $ver, $help ) = ('',0,0,0,0);
 
 GetOptions(
@@ -30,7 +30,7 @@ $name for kill a program by name: k easily kills a running program or count how 
       
     Optional:
         -f         Force a temperamental process to end
-        -c         List number of processes the program is using
+        -c         List the number of processes the program is using
         -v         Version and License
         -help        
 EOD
