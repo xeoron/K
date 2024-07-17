@@ -42,7 +42,7 @@ sub _isRunning(){#end script if program is not running
         print "...$program is not running!\n"; 
         exit 0;
   }  
-  return --$count; #return count and because the system call adds a extra 1 to the total so remove it
+  return --$count; #return count and because the system call adds a extra 1 to the total remove it
 }#end _isRunning()
 
 sub main(){
