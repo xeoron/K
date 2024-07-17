@@ -1,7 +1,7 @@
 #!/bin/sh -e
 #Author: Jason Campisi
-#Date: 2/23/2020
-#version 0.2.5
+#Date: 7/17/2024
+#version 0.2.6
 #Released under the GPL v2 or higher
 NAME="k"
 EXT="pl"
