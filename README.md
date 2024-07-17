@@ -7,7 +7,7 @@ The *nix command kill requires a process number. K makes it easier.
 
 Usage: To kill a program by name
 =====  
-    ./k.pl -t program_to_shutdown
+    k -t program_to_shutdown
     Optional:
         -c         list number of processes the program is using.
         -v         Version and License
