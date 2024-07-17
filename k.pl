@@ -2,7 +2,7 @@
 # Name: k.pl
 # Author: Jason Campisi
 # Date: 7/17/2024
-# Purpose: K easily kills a running program by name or count how many processes it is using.
+# Purpose: K easily kills a running *nix program by name or count how many processes it is using.
 # License: Released under GPL v3 or higher. Details here http://www.gnu.org/licenses/gpl.html
 
 use strict;

@@ -1,7 +1,7 @@
 K
 =====
 
-K easily kills a running program by name or count how many processes it is using.
+K easily kills a *nix based running program by name or count how many processes it is using.
 The *nix command kill requires a process number. K makes it easier.
 
 
@@ -20,7 +20,7 @@ Requirements
 Software:
 
     Perl v5 or higher
-    Terminal
+    *nix based system with ps, grep, awk, xargs, & kill
 
 Setup
 =====
