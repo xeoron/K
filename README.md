@@ -18,7 +18,7 @@ Requirements
 =====
 Software:
 
-    Perl v5 of higher
+    Perl v5 or higher
     Terminal
 
 Setup
