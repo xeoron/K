@@ -2,13 +2,13 @@
 # Name: k.pl
 # Author: Jason Campisi
 # Date: 7/17/2024
-# Purpose: K easily kills a running program or count how many processes it is using.
+# Purpose: K easily kills a running program by name or count how many processes it is using.
 # License: Released under GPL v3 or higher. Details here http://www.gnu.org/licenses/gpl.html
 
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.0.0 of $0 is released under the GPL v3";
+my $version="Version 1.0.1 of $0 is released under the GPL v3";
 my ($program, $processCount, $ver, $help ) = ('',0,0,0);
 
 GetOptions(
@@ -38,7 +38,6 @@ EOD
 sub _isRunning(){#end script if program is not running
   my $count=`ps x | grep -i $program | grep -v grep | awk '{print $1}' | wc -l`;
      $count=~s/^\s*(.*?)\s*$/$1/;  #trim white spaces
-     #print "result: $count\n";
   if (1 >=$count){ 
         print "...$program is not running!\n"; 
         exit 0;
