@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.3.3 of $0 is released under the GPL v3";
+my $version="Version 1.3.4 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $silent, $ver, $help ) = ('',0,0,0,0,0);
 
 GetOptions(
@@ -26,7 +26,8 @@ sub _version(){
 
 sub _getHelp(){ # check required data or if help was called
 print <<EOD;
-$name for kill a program by name: k easily kills a running program or count how many processes it is using.
+ $name for kill a program by name. 
+ K easily kills a running program or count how many processes it is using.
     Example: $name -t program_to_kill
 
         -t|target       Target process by name to terminate      
