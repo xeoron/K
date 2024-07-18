@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.3.0 of $0 is released under the GPL v3";
+my $version="Version 1.3.1 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $silent, $ver, $help ) = ('',0,0,0,0,0);
 
 GetOptions(
@@ -32,7 +32,7 @@ $name for kill a program by name: k easily kills a running program or count how 
     Optional:
         -f         Force a temperamental process to end
         -c         List the number of processes the program is using
-        -s         Silent Mode
+        -s         Silent mode don't display feedback
         -v         Version and License
         -help        
 EOD
@@ -55,7 +55,7 @@ sub main(){
     my $count = _isRunning();
 
     if ($processCount && $program){
-        print "Total number of proccesses $program is using: $count\n" if (!$silent);
+        print "Total number of proccesses $program is using: $count\n";
     }
     elsif ($program){ #kill the program
         print "Shutting down all $program processes\n" if (!$silent);

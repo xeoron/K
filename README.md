@@ -11,7 +11,7 @@ Usage: To kill a program by name
     Optional:
         -f         Force a temperamental process to end
         -c         List number of processes the program is using
-        -s         Silent Mode
+        -s         Silent mode don't display feedback
         -v         Version and License
         -help     
 
