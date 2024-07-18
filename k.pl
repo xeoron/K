@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.3.6 of $0 is released under the GPL v3";
+my $version="Version 1.3.5 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $silent, $ver, $help ) = ('',0,0,0,0,0);
 
 GetOptions(
