@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.3.4 of $0 is released under the GPL v3";
+my $version="Version 1.3.6 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $silent, $ver, $help ) = ('',0,0,0,0,0);
 
 GetOptions(
@@ -42,13 +42,13 @@ EOD
 }#end _getHelp()
 
 sub _isRunning(){#end script if program is not running
-  my $count=`ps x | grep -i $program | grep -v grep | awk '{print $1}' | wc -l`;
+  my $count=`ps x | grep -i "$program" | grep -v grep | awk '{print $1}' | wc -l`;
      $count=~s/^\s*(.*?)\s*$/$1/;  #trim white spaces
-  if (1 >=$count){ 
+  if (1 > --$count){ 
         print "...$program is not running!\n" if (!$silent);
         exit 0;
   }  
-  return --$count; #return count and because the system call adds a extra 1 to the total remove it
+  return $count; #return count and because the system call adds a extra 1 to the total remove it
 }#end _isRunning()
 
 sub main(){
@@ -63,11 +63,9 @@ sub main(){
         print "Shutting down all $program processes\n" if (!$silent);
         my $state="-9";
         $state = "-11" if ($force);
-        `ps x | grep -i $program | grep -v grep | awk '{print $1}' | xargs kill $state >/dev/null 2>&1`;
+        `ps x | grep -i "$program" | grep -v grep | awk '{print $1}' | xargs kill $state >/dev/null 2>&1`;
     }
  return 0;
 }#end main
 
-main();
-
-exit 0;
+exit main();
