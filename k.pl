@@ -30,7 +30,7 @@ print <<EOD;
  K easily kills a running program or count how many processes it is using.
     Example: $name -t program_to_kill
 
-        -t|target       Target process by name to terminate      
+        -t|target       Target a process by name to terminate      
     Optional:
         -f|force        Force a temperamental process to end
         -c|count        List number of processes the program is using
