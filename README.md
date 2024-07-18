@@ -9,7 +9,7 @@ Usage: To kill a program by name
 =====  
     Example: k -t program_to_shutdown
 
-        -t|target       Target process by name to terminate
+        -t|target       Target a process by name to terminate
     Optional:
         -f|force        Force a temperamental process to end
         -c|count        List number of processes the program is using
