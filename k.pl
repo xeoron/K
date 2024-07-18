@@ -8,16 +8,16 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 1.3.1 of $0 is released under the GPL v3";
+my $version="Version 1.3.2 of $0 is released under the GPL v3";
 my ($program, $force, $processCount, $silent, $ver, $help ) = ('',0,0,0,0,0);
 
 GetOptions(
-    't=s' =>\$program,
+    't|target=s' =>\$program,
     "f|force" =>\$force,
-    "c" =>\$processCount,
-    "s" =>\$silent, 
-    "version|v" =>\$ver,
-    "help" =>\$help,
+    "c|count" =>\$processCount,
+    "s|silent" =>\$silent, 
+    "v|version" =>\$ver,
+    "h|help" =>\$help,
     );
 
 sub _version(){ 
@@ -28,13 +28,14 @@ sub _getHelp(){ # check required data or if help was called
 print <<EOD;
 $name for kill a program by name: k easily kills a running program or count how many processes it is using.
     Usage:        $name -t program_to_kill
-      
+
+        -t|target       Target process by name to terminate      
     Optional:
-        -f         Force a temperamental process to end
-        -c         List the number of processes the program is using
-        -s         Silent mode: don't display feedback
-        -v         Version and License
-        -help        
+        -f|force        Force a temperamental process to end
+        -c|count        List number of processes the program is using
+        -s|silent       Silent mode: don't display feedback
+        -v|version      Version and License
+        -h|help         Explain usage       
 EOD
     exit 0;    
 }#end _getHelp()

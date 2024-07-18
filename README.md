@@ -8,12 +8,14 @@ The *nix command kill requires a process number. K makes it easier.
 Usage: To kill a program by name
 =====  
     k -t program_to_shutdown
+
+        -t|target       Target process by name to terminate
     Optional:
-        -f         Force a temperamental process to end
-        -c         List number of processes the program is using
-        -s         Silent mode: don't display feedback
-        -v         Version and License
-        -help     
+        -f|force        Force a temperamental process to end
+        -c|count        List number of processes the program is using
+        -s|silent       Silent mode: don't display feedback
+        -v|version      Version and License
+        -h|help         Explain usage
 
 
 Requirements
