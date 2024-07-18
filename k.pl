@@ -32,7 +32,7 @@ $name for kill a program by name: k easily kills a running program or count how 
     Optional:
         -f         Force a temperamental process to end
         -c         List the number of processes the program is using
-        -s         Silent mode don't display feedback
+        -s         Silent mode: don't display feedback
         -v         Version and License
         -help        
 EOD
