@@ -27,7 +27,7 @@ Requirements
 Software:
 
     Perl v5 or higher
-    *nix based system with ps, grep, awk, xargs, & kill
+    *nix based system with ps, grep, xargs, & kill
 
 Setup
 =====

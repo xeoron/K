@@ -52,7 +52,7 @@ sub uniq(@) { #remove array duplicates
 }#end uniq
 
 sub _isRunning(){#end script if program is not running
- my @countIDS = `ps x | grep -i "$program" | grep -v grep | grep -v "t $program"`;  #| awk '{print $1}'
+ my @countIDS = `ps x | grep -i "$program" | grep -v grep | grep -v "t $program"`;
  my (@list, @processID);
    foreach (@countIDS) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
