@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.1.2 of $0 is released under the GPL v3";
+my $version="Version 2.1.3 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -79,9 +79,9 @@ sub main(){
       print scalar @countID . " processes\n";
   }elsif ($program){ #kill the program
       print "Shutting down all $program processes\n" if (!$silent);
-      my $state="-9";
-      $state = "-11" if ($force);
-      foreach (@countID){ qx\kill $state $_ >/dev/null 2>&1\; }
+      my $option="-9";
+      $option = "-11" if ($force);
+      foreach (@countID){ qx\kill $option $_ >/dev/null 2>&1\; }
   }
  return 0;
 }#end main
