@@ -2,7 +2,7 @@ K
 =====
 
 K easily kills a *nix based running program by name or provides process detail on the program.
-The *nix command kill requires a process number. K makes it easier
+The *nix command killall often does not find my program and kill requires a process number. K makes it easier
     to list the process ID's of a program, 
     to learn the total process count, and
     to terminate a running program by name
