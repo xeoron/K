@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.1.1 of $0 is released under the GPL v3";
+my $version="Version 2.1.2 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -28,7 +28,10 @@ sub _version(){
 sub _getHelp(){ # check required data or if help was called
 print <<EOD;
  $name for kill a program by name. 
- K easily kills a running program or count how many processes it is using.
+ K easily kills a *nix based running program by name or provides process detail on the program.
+ The *nix command kill requires a process number. K makes it easier to list the process ID's 
+ of a program, learn the process count or to terminate a program.
+
     Example: 
         k -t program_to_kill
         k -c -t "visual studio code"
