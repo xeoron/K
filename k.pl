@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.1.0 of $0 is released under the GPL v3";
+my $version="Version 2.1.1 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -59,7 +59,6 @@ sub _isRunning(){#end script if program is not running
         push (@list, $1) if ($_=~m/^(\d+)/); #grab proccess id
    }
    @processID = uniq(@list) if (@list); #purge duplicates
-   
    if (@processID == 0){ warn "$program is not running\n"; exit 0; }
 
  return @processID; #return process ID's 
@@ -70,10 +69,10 @@ sub main(){
   _getHelp() if ($help or $program eq "");
   my @countID = _isRunning();
 
-  if ($pid && $program){
+  if ($pid){
       print "Total of " . scalar @countID . " Processes\n" if ($pCount && !$silent);
       foreach (@countID) { print "$_\n"; } 
-  }elsif ($pCount && $program){
+  }elsif ($pCount){
       print scalar @countID . " processes\n";
   }elsif ($program){ #kill the program
       print "Shutting down all $program processes\n" if (!$silent);
