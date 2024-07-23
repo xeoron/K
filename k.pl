@@ -8,7 +8,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.1.3 of $0 is released under the GPL v3";
+my $version="Version 2.1.4 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -55,7 +55,7 @@ sub uniq(@) { #remove array duplicates
 }#end uniq
 
 sub _isRunning(){#end script if program is not running
- my @countIDS = `ps x | grep -i "$program" | grep -v grep | grep -v "t $program"`;
+ my @countIDS = `ps x | grep -i "$program" | grep -v grep | grep -v "t $program" | sort`;
  my (@list, @processID);
    foreach (@countIDS) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
