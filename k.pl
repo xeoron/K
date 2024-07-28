@@ -1,14 +1,15 @@
 #!/usr/bin/perl
 # Name: k.pl
 # Author: Jason Campisi
-# Date: 7/19/2024
+# Date: 7/28/2024
+# Repository: https://github.com/xeoron/K
 # Purpose: K easily kills a running *nix program by name or count how many processes it is using.
 # License: Released under GPL v3 or higher. Details here http://www.gnu.org/licenses/gpl.html
 
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.1.4 of $0 is released under the GPL v3";
+my $version="Version 2.2.0 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
