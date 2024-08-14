@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.1 of $0 is released under the GPL v3";
+my $version="Version 2.2.2 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -74,7 +74,7 @@ sub main(){
   my @countID = _isRunning();
 
   if ($pid){
-      print "Total of " . scalar @countID . " Processes\n" if ($pCount && !$silent);
+      print "Process Count " . scalar @countID . "\n" . '-' x 17 . "\n" if ($pCount && !$silent);
       foreach (@countID) { print "$_\n"; } 
   }elsif ($pCount){
       if (scalar @countID == 1){ print scalar @countID . " process\n"; }
