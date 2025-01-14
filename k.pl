@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.5 of $0 is released under the GPL v3";
+my $version="Version 2.2.6 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -57,7 +57,7 @@ sub remove_duplicates(@) { #remove array duplicates
 
 sub _isRunning(){#end script if program is not running
 
-my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v grep -i | sort`;
+my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
 my (@list, @processID);
    foreach (@countIDS) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
