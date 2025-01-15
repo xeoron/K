@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # Name: k.pl
 # Author: Jason Campisi
-# Date: 1/13/2025
+# Date: 1/15/2025
 # Repository: https://github.com/xeoron/K
 # Purpose: K easily kills a running *nix program by name or count how many processes it is using.
 # License: Released under GPL v3 or higher. Details here http://www.gnu.org/licenses/gpl.html
@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.6 of $0 is released under the GPL v3";
+my $version="Version 2.2.7 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -57,8 +57,10 @@ sub remove_duplicates(@) { #remove array duplicates
 
 sub _isRunning(){#end script if program is not running
 
-my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
 my (@list, @processID);
+my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
+#important grep -v "t $program" filters out the running k program so it doesn't shut itself down.
+
    foreach (@countIDS) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
         push (@list, $1) if ($_=~m/^(\d+)/); #grab proccess id
