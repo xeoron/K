@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.9 of $0 is released under the GPL v3";
+my $version="Version 2.2.10 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -58,15 +58,13 @@ sub remove_duplicates(@) { #remove array duplicates
 sub _isRunning(){#end script if program is not running
  my (@list, @processID);
  my @results = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
-#important grep -v "t $program" filters out the running k program so it doesn't shut itself down.
+ #important: grep -v "t $program" filters out the running k program so it doesn't shut itself down.
 
    foreach (@results) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
         push (@list, $1) if ($_=~m/^(\d+)/); #grab proccess id
    }
    @processID = remove_duplicates(@list) if (@list); #purge duplicates
-   if (@processID == 0){ warn "$program is not running\n"; exit 0; }
- 
  return @processID; #return process ID's 
 }#end _isRunning()
 
@@ -75,7 +73,9 @@ sub main(){
   _printHelp() if ($help or $program eq "");
   my @processID = _isRunning();
 
-  if ($pid){
+  if (@processID == 0){ 
+      warn "$program is not running\n"; exit 0; 
+  }elsif ($pid){
       print "Process Count " . scalar @processID . "\n" . '-' x 17 . "\n" if ($pid && !$silent);
       foreach (@processID) { print "$_\n"; } 
   }elsif ($pCount){
