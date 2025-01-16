@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.8 of $0 is released under the GPL v3";
+my $version="Version 2.2.9 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -51,17 +51,16 @@ EOD
 }#end _printHelp()
 
 sub remove_duplicates(@) { #remove array duplicates
-    my %seen;
-    grep !$seen{$_}++, @_;
+ my %seen;
+  grep !$seen{$_}++, @_;
 }#end remove_duplicates
 
 sub _isRunning(){#end script if program is not running
-
-my (@list, @processID);
-my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
+ my (@list, @processID);
+ my @results = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | sort`;
 #important grep -v "t $program" filters out the running k program so it doesn't shut itself down.
 
-   foreach (@countIDS) {
+   foreach (@results) {
         $_=~s/^\s*(.*?)\s*$/$1/g;  #trim white spaces
         push (@list, $1) if ($_=~m/^(\d+)/); #grab proccess id
    }
@@ -74,19 +73,19 @@ my @countIDS = `ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep
 sub main(){
   _version() if ($ver);
   _printHelp() if ($help or $program eq "");
-  my @countID = _isRunning();
+  my @processID = _isRunning();
 
   if ($pid){
-      print "Process Count " . scalar @countID . "\n" . '-' x 17 . "\n" if ($pid && !$silent);
-      foreach (@countID) { print "$_\n"; } 
+      print "Process Count " . scalar @processID . "\n" . '-' x 17 . "\n" if ($pid && !$silent);
+      foreach (@processID) { print "$_\n"; } 
   }elsif ($pCount){
-      if (scalar @countID == 1){ print scalar @countID . " process\n"; }
-      else{ print scalar @countID . " processes\n"; }
+      if (scalar @processID == 1){ print scalar @processID . " process\n"; }
+      else{ print scalar @processID . " processes\n"; }
   }elsif ($program){ #kill the program
       print "Shutting down all $program processes\n" if (!$silent);
       my $option="-9";
       $option = "-11" if ($force);
-      foreach (@countID){ kill $option, $_; } # <-- more secure than using qx\kill $option $_ >/dev/null 2>&1\; 
+      foreach (@processID){ kill $option, $_; } # <-- more secure than using qx\kill $option $_ >/dev/null 2>&1\; 
   }
  return 0;
 }#end main
