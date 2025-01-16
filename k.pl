@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.7 of $0 is released under the GPL v3";
+my $version="Version 2.2.8 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -86,7 +86,7 @@ sub main(){
       print "Shutting down all $program processes\n" if (!$silent);
       my $option="-9";
       $option = "-11" if ($force);
-      foreach (@countID){ qx\kill $option $_ >/dev/null 2>&1\; }   #{ kill $option, $_; }  # <-- more secure than using qx\kill $option $_ >/dev/null 2>&1\; 
+      foreach (@countID){ kill $option, $_; } # <-- more secure than using qx\kill $option $_ >/dev/null 2>&1\; 
   }
  return 0;
 }#end main
