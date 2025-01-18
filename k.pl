@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.11 of $0 is released under the GPL v3";
+my $version="Version 2.2.12 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -56,14 +56,14 @@ sub remove_duplicates(@) { #remove array duplicates
 }#end remove_duplicates
 
 sub _isRunning(){#end script if program is not running
- my (@list, @processID);
- my @results = qx/ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | awk '{print \$1}'/;
+ my (@results, @processID);
+ my @list = qx/ps x | grep -i "$program" | grep -v "t $program" | grep -v "grep -i" | awk '{print \$1}'/;
  #important: grep -v "t $program" filters out the running k program so it doesn't shut itself down.
-   foreach (@results) {
+   foreach (@list) {
         $_=~s/\s//g;  #trim white spaces
-        push (@list, $_); #grab proccess id
+        push (@results, $_); #grab proccess id
    } 
-   @processID = remove_duplicates(@list) if (@list); #purge duplicates if ids in list
+   @processID = remove_duplicates(@results) if (@results); #purge duplicates if ids in list
 
  return @processID; #return process ID's 
 }#end _isRunning()
