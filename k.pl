@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.12 of $0 is released under the GPL v3";
+my $version="Version 2.2.13 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -61,11 +61,11 @@ sub _isRunning(){#end script if program is not running
  #important: grep -v "t $program" filters out the running k program so it doesn't shut itself down.
    foreach (@list) {
         $_=~s/\s//g;  #trim white spaces
-        push (@results, $_); #grab proccess id
+        push (@processID, $_); #grab proccess id
    } 
-   @processID = remove_duplicates(@results) if (@results); #purge duplicates if ids in list
+   @results = remove_duplicates(@processID) if (@processID); #purge duplicates if ids in list
 
- return @processID; #return process ID's 
+ return @results; #return process ID's 
 }#end _isRunning()
 
 sub main(){
