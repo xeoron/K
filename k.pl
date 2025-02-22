@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # Name: k.pl
 # Author: Jason Campisi
-# Date: 1/18/2025
+# Date: 2/22/2025
 # Repository: https://github.com/xeoron/K
 # Purpose: K easily kills a running *nix program by name or count how many processes it is using.
 # License: Released under GPL v3 or higher. Details here http://www.gnu.org/licenses/gpl.html
@@ -9,7 +9,7 @@
 use strict;
 use Getopt::Long;
 my $name="k.pl";
-my $version="Version 2.2.14 of $0 is released under the GPL v3";
+my $version="Version 2.2.15 of $0 is released under the GPL v3";
 my ($program, $force, $pCount, $pid, $silent, $ver, $help ) = ('',0,0,0,0,0,0);
 
 GetOptions(
@@ -42,7 +42,7 @@ print <<EOD;
     Optional:
         -f|force        Force a temperamental process to end
         -c|count        List total number of processes the program is using
-        -p|pids         List the process IDs
+        -p|pid          List the process IDs
         -s|silent       Silent mode: don't display feedback
         -v|version      Version and License
         -h|help         Explain usage       
